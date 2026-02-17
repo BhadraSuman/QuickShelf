@@ -36,13 +36,12 @@ Unlike traditional IoT displays that render graphics on the device (slow and bat
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/yourusername/velarc-esl.git](https://github.com/yourusername/velarc-esl.git)
-    cd velarc-esl/backend
+    git clone https://github.com/BhadraSuman/QuickShelf.git
     ```
 
 2.  Install dependencies:
     ```bash
-    npm install
+    pnpm install
     ```
 
 3.  Configure Environment:
@@ -60,7 +59,7 @@ Unlike traditional IoT displays that render graphics on the device (slow and bat
 
 5.  Run the Server:
     ```bash
-    node server.js
+    pnpm start
     ```
 
 ### **2. Firmware Setup (ESP32)**

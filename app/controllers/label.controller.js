@@ -5,10 +5,9 @@ const { generateTagPayload, STORE_TOPIC_PREFIX, client } = require("../services/
 const labelControllers = {};
 
 labelControllers.checkIn = async (req, res) => {
-    const { mac } = req.params;
-    const { battery, wifi, ip } = req.query; // ESP32 sends status in URL params
-
     try {
+        const { mac } = req.params;
+        const { battery, wifi, ip } = req.query; // ESP32 sends status in URL params
         // A. Find the device configuration
         let device = await Label.findOne({ macAddress: mac });
 
@@ -50,7 +49,7 @@ labelControllers.updateTag = async (req, res) => {
     }
 
     try {
-        // 1. VALIDATION: Check if Tag exists in MongoDB 
+        // 1. VALIDATION: Check if Tag exists in MongoDB
 
         const existingLabel = await Label.findOne({ macAddress: tagId });
 
@@ -76,7 +75,7 @@ labelControllers.updateTag = async (req, res) => {
 
         const topic = `${STORE_TOPIC_PREFIX}/${tagId}`;
 
-        console.log(imageBuffer)
+        console.log(imageBuffer);
 
         client.publish(topic, imageBuffer, (err) => {
             if (err) {
